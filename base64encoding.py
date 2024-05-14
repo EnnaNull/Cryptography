@@ -15,6 +15,7 @@ def binaryToDecimal(binary):
             finalInt = finalInt + number
         return(finalInt)
 def base64():
+    #the only time i used chatgpt in this one was to generate this list.. so basically im pro
     base64_characters = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
