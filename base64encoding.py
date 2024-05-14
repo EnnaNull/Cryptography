@@ -15,36 +15,41 @@ def binaryToDecimal(binary):
             finalInt = finalInt + number
         return(finalInt)
 def base64():
-    #the only time i used chatgpt in this one was to generate this list.. so basically im pro
     base64_characters = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'
 ]
-    plainText = input("What do you want to encode?\n")
+    file = open(fr"C:\Users\starw\Desktop\Siyools\Python tools\crypto.txt","r")
+    plainText = file.read()
     combined=""
     chunks = []
     for char in plainText:
-        
-        binary = bin(ord(char))
-        binary=binary.replace("b","")
+        ascii = ord(char)
+        print(char,ascii)
+        binary = format(ascii,'08b')
+        #this was a bad idea
+        #binary=binary.replace("0b","")
         
         combined+=binary
-    #i'm not sure on where to use this or why its even needed in the first place
-    #while len(combined)%3!=0:
-      #  combined+="="
+    #still dont need this
+   # while len(combined)%3!=0:
+    #    combined+="="
+    print(combined)
     while len(combined)>0:
 
-       
+        
         chunks.append(combined[:6])
         combined=combined[6:]
-       
+    
     while len(chunks[-1])<6:
         chunks[-1]+="0"
     
     i=0
     for chunk in chunks:
+        
         chunks[i]=binaryToDecimal(chunk)
+        
         chunks[i]=base64_characters[chunks[i]]
         i+=1
     base64encoding = "".join(chunks)
